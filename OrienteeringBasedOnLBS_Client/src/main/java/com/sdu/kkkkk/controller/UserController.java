@@ -1,5 +1,6 @@
 package com.sdu.kkkkk.controller;
 
+import com.sdu.kkkkk.Application.Message;
 import com.sdu.kkkkk.entity.User;
 import com.sdu.kkkkk.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/u")
 public class UserController {
-    private User curU;
 
     @Autowired
     private UserRepository userRepository;
@@ -22,13 +22,35 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    @RequestMapping(value = "/findBySid")
-    public User findBySid(String sid){
-        return userRepository.findBySid(sid);
+    @RequestMapping(value = "/findUserBySid")
+    public Message<User> findBySid(String sid){
+        User user = userRepository.findBySid(sid);
+        if(user != null)
+            return new Message<User>(true,"success",user);
+        else
+            return new Message<User>(false,"failure", null);
     }
 
-    @RequestMapping(value = "/findByName")
-    public User findByName(String name){
-        return userRepository.findByName(name);
+    @RequestMapping(value = "/updateLocation")
+    public Message<User> updateLocation(String sid, String longitude, String latitude){
+        User user = userRepository.findBySid(sid);
+        if(user != null) {
+            userRepository.updateLongitudeAndLatitudeBySid(sid, longitude, latitude);
+            return new Message<User>(true,"success", user);
+        }else
+            return new Message<User>(false,"failure", null);
+    }
+
+    @RequestMapping(value = "/login")
+    public Message<User> logIn(String sid,String password){
+        User user = userRepository.findBySid(sid);
+        if(user!=null){
+            if(user.getPassword().equals(password)){
+                return new Message<>(true,"success",user);
+            }else
+                return new Message<>(false,"wrong password",null);
+        }else{
+            return new Message<>(false,"no such student", null);
+        }
     }
 }

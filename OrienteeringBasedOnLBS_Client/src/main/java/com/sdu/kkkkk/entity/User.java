@@ -17,6 +17,10 @@ public class User implements Serializable {
     private String name;
     private String password;
 
+    private String image;
+    private String longitude;
+    private String latitude;
+
     public String getSid() {
         return sid;
     }
@@ -41,5 +45,28 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
 
 }

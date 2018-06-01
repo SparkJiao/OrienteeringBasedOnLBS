@@ -6,16 +6,16 @@ import java.io.Serializable;
  * Created by ASUS on 2018/4/1.
  */
 public class Message<T> implements Serializable{
-    private boolean ok;
+    private boolean flag;
     private String msg;
     private T obj;
 
-    public boolean isOk() {
-        return ok;
+    public boolean isFlag() {
+        return flag;
     }
 
-    public void setOk(boolean ok) {
-        this.ok = ok;
+    public void setFlag(boolean flag) {
+        this.flag = flag;
     }
 
     public String getMsg() {
@@ -32,5 +32,11 @@ public class Message<T> implements Serializable{
 
     public void setObj(T obj) {
         this.obj = obj;
+    }
+
+    public Message(boolean flag,String msg, T t){
+        this.flag = flag;
+        this.msg = msg;
+        this.obj = t;
     }
 }
