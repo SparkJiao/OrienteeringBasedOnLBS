@@ -68,12 +68,23 @@ public class Conversations {
     private String category;
     private String content;
 
-    public Conversations(String sender, String receiver, Date time, String category, String content) {
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    private int state;
+    // 0 未读 1 已读
+
+    public Conversations(String sender, String receiver, String category, String content) {
         this.sender = sender;
         this.receiver = receiver;
-        this.time = time;
         this.category = category;
         this.content = content;
+        this.state = 0;
     }
 
     public Conversations(){}

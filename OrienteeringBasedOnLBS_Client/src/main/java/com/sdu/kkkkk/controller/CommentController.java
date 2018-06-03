@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by kkkkk on 2018/4/1.
  */
 @RestController
-@RequestMapping("/c")
+//@RequestMapping("/c")
 public class CommentController {
 }

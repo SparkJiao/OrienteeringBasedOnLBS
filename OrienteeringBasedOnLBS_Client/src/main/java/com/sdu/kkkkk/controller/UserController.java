@@ -1,9 +1,10 @@
 package com.sdu.kkkkk.controller;
 
-import com.sdu.kkkkk.Application.Message;
+import com.sdu.kkkkk.Message;
 import com.sdu.kkkkk.entity.User;
 import com.sdu.kkkkk.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,11 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by kkkkk on 2018/4/1.
  */
 @RestController
-@RequestMapping("/u")
+//@RequestMapping("/u")
 public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @RequestMapping("/")
+    public String index(){
+        return "Hello world！";
+    }
 
     @RequestMapping(value = "/saveUser")
     public User saveUser(User user){
@@ -42,7 +48,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login")
-    public Message<User> logIn(String sid,String password){
+    public Message<User> logIn(@Param("sid")String sid, @Param("password")String password){
+        System.out.println(sid + " " + password);
         User user = userRepository.findBySid(sid);
         if(user!=null){
             if(user.getPassword().equals(password)){
