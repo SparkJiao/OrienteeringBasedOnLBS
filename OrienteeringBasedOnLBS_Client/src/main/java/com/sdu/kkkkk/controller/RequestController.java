@@ -1,7 +1,9 @@
 package com.sdu.kkkkk.controller;
 
 import com.sdu.kkkkk.Message;
+import com.sdu.kkkkk.entity.Friend;
 import com.sdu.kkkkk.entity.Request;
+import com.sdu.kkkkk.repository.FriendRepository;
 import com.sdu.kkkkk.repository.RequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,19 +19,17 @@ public class RequestController {
 
     @Autowired
     RequestRepository requestRepository;
+    @Autowired
+    FriendRepository friendRepository;
 
     @RequestMapping("/findRequestByReceiver")
-    public Message<List<Request>> findRequestByReceiver(String receiver){
-        Message<List<Request>> message = new Message<>(true,"success",requestRepository.findRequestByReceiver(receiver));
-        System.out.println(message);
-        return message;
+    public List<Request> findRequestByReceiver(String receiver){
+        return requestRepository.findRequestByReceiver(receiver);
     }
 
     @RequestMapping("/findRequestBySender")
-    public Message<List<Request>> findRequesetBySender(String sender){
-        Message<List<Request>> message = new Message<>(true,"success",requestRepository.findRequestBySender(sender));
-        System.out.println(message);
-        return message;
+    public List<Request> findRequestBySender(String sender){
+        return requestRepository.findRequestBySender(sender);
     }
 
     @RequestMapping("/saveRequest")
@@ -40,7 +40,8 @@ public class RequestController {
     @RequestMapping("/agreeRequest")
     public void agreeRequest(int rid){
         requestRepository.agree(rid);
-        //前端请求/addFriend
+        Request request = requestRepository.findRequestByRid(rid);
+        friendRepository.save(new Friend(request.getReceiver(),request.getSender()));
     }
 
     @RequestMapping("disagreeRequest")

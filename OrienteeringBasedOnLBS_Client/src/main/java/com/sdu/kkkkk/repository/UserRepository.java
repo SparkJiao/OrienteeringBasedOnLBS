@@ -14,6 +14,6 @@ public interface UserRepository extends JpaRepository<User,String>{
 
     @Transactional
     @Modifying
-    @Query("update User as r set r.longitude = ?2, r.latitude = ?3 where r.id = id")
+    @Query("update User as r set r.longitude = ?2, r.latitude = ?3 where r.sid = ?1")
     void updateLongitudeAndLatitudeBySid(String id, String longitude, String latitude);
 }

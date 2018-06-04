@@ -69,4 +69,12 @@ public class User implements Serializable {
         this.latitude = latitude;
     }
 
+    public User(String sid, String password, String name){
+        this.sid = sid;
+        this.password = password;
+        this.name = name;
+    }
+
+    public User(){}
+
 }

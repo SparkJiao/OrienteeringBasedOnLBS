@@ -1,8 +1,6 @@
 package com.sdu.kkkkk.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -12,6 +10,7 @@ import java.util.Date;
 @Table(name = "request")
 public class Request {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int rid;
     private String receiver;
     private String sender;

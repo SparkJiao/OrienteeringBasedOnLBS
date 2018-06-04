@@ -24,8 +24,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/saveUser")
-    public User saveUser(User user){
-        return userRepository.save(user);
+    public User saveUser(String sid,String password, String name){
+        return userRepository.save(new User(sid, password, name));
     }
 
     @RequestMapping(value = "/findUserBySid")
@@ -39,6 +39,7 @@ public class UserController {
 
     @RequestMapping(value = "/updateLocation")
     public Message<User> updateLocation(String sid, String longitude, String latitude){
+        System.out.println(sid + " " +  longitude + " " + latitude);
         User user = userRepository.findBySid(sid);
         if(user != null) {
             userRepository.updateLongitudeAndLatitudeBySid(sid, longitude, latitude);
