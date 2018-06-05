@@ -33,19 +33,22 @@ public class RequestController {
     }
 
     @RequestMapping("/saveRequest")
-    public void saveRequest(String receiver,String sender){
+    public Message<String> saveRequest(String receiver,String sender){
         requestRepository.save(new Request(receiver,sender));
+        return new Message<>(true,"success", "saveRequest");
     }
 
     @RequestMapping("/agreeRequest")
-    public void agreeRequest(int rid){
+    public Message<String> agreeRequest(int rid){
         requestRepository.agree(rid);
         Request request = requestRepository.findRequestByRid(rid);
         friendRepository.save(new Friend(request.getReceiver(),request.getSender()));
+        return new Message<>(true,"success","agree");
     }
 
     @RequestMapping("disagreeRequest")
-    public void disagreeRequest(int rid){
+    public Message disagreeRequest(int rid){
         requestRepository.disagree(rid);
+        return new Message<>(true,"success",null);
     }
 }

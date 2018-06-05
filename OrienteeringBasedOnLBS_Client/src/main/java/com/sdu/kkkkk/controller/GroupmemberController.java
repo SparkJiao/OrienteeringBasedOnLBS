@@ -1,7 +1,9 @@
 package com.sdu.kkkkk.controller;
 
+import com.sdu.kkkkk.Message;
 import com.sdu.kkkkk.entity.Group;
 import com.sdu.kkkkk.entity.Groupmember;
+import com.sdu.kkkkk.entity.GroupmemberKey;
 import com.sdu.kkkkk.repository.GroupRepository;
 import com.sdu.kkkkk.repository.GroupmemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +33,23 @@ public class GroupmemberController {
             groupList.add(groupRepository.findGroupByGid(gidsList.get(i)));
         }
         return groupList;
+    }
+
+    @RequestMapping("/invite")
+    public Message<String> invite(String sid, int gid){
+        groupmemberRepository.save(new Groupmember(gid,sid));
+        return new Message<>(true,"success","invite");
+    }
+
+    @RequestMapping("/exitGroup")
+    public Message<String> exitGroup(String sid,int gid){
+        groupmemberRepository.deleteById(new GroupmemberKey(gid, sid));
+        return new Message<>(true, "success", "exit");
+    }
+
+    @RequestMapping("/cancelGroup")
+    public Message<String> cancelGroup(int gid){
+        groupmemberRepository.deleteGroupmembersByGid(gid);
+        return new Message<>(true, "success", "cancel");
     }
 }

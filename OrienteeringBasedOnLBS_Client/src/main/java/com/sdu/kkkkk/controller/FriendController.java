@@ -33,7 +33,8 @@ public class FriendController {
     }*/
 
     @RequestMapping("/deleteFriend")
-    public void deleteFriend(String sid_1, String sid_2){
-        friendRepository.deleteFriendBySid_1AndSid_2(sid_1, sid_2);
+    public Message<Friend> deleteFriend(String sid_1, String sid_2){
+        Friend f =  friendRepository.deleteFriendBySid_1AndSid_2(sid_1, sid_2);
+        return new Message<>(true,"success", f);
     }
 }

@@ -1,5 +1,6 @@
 package com.sdu.kkkkk.controller;
 
+import com.sdu.kkkkk.Message;
 import com.sdu.kkkkk.entity.Conversations;
 import com.sdu.kkkkk.repository.ConversationsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,8 @@ public class ConversationsController {
     }
 
     @RequestMapping("/addConversations")
-    public void addConversations(String sender, String receiver, String category, String content) {
+    public Message<Conversations> addConversations(String sender, String receiver, String category, String content) {
         conversationsRepository.save(new Conversations(sender, receiver, category, content));
+        return new Message<Conversations>(true,"success",null);
     }
 }

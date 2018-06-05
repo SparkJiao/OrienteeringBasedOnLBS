@@ -1,5 +1,6 @@
 package com.sdu.kkkkk.controller;
 
+import com.sdu.kkkkk.Message;
 import com.sdu.kkkkk.entity.Groupnote;
 import com.sdu.kkkkk.repository.GroupnoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,14 @@ public class GroupnoteController {
     }
 
     @RequestMapping("/addGroupnote")
-    public void save(int gid, String sid, String category, String content) {
+    public Message<String> save(int gid, String sid, String category, String content) {
         groupnoteRepository.save(new Groupnote(gid, sid, category, content));
+        return new Message<>(true,"success", "addGroupnote");
+    }
+
+    @RequestMapping("/cleanNotes")
+    public Message<String> cleanNotes(){
+        groupnoteRepository.deleteAll();
+        return new Message<>(true,"success", "cleanNotes");
     }
 }

@@ -25,5 +25,5 @@ public interface FriendRepository extends JpaRepository<Friend,FriendKey> {
     @Transactional
     @Modifying
     @Query("delete from Friend f where (f.sid_1 = ?1 and f.sid_2 = ?2) or (f.sid_2 = ?1 and f.sid_1 = ?2)")
-    void deleteFriendBySid_1AndSid_2(String sid_1, String sid_2);
+    Friend deleteFriendBySid_1AndSid_2(String sid_1, String sid_2);
 }
