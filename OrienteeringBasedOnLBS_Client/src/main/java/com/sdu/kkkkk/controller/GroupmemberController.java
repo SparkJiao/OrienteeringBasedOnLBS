@@ -1,6 +1,6 @@
 package com.sdu.kkkkk.controller;
 
-import com.sdu.kkkkk.Message;
+import com.sdu.kkkkk.models.Message;
 import com.sdu.kkkkk.entity.Group;
 import com.sdu.kkkkk.entity.Groupmember;
 import com.sdu.kkkkk.entity.GroupmemberKey;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ASUS on 2018/6/4.
+ * Created by kkkkk on 2018/6/4.
  */
 @RestController
 public class GroupmemberController {

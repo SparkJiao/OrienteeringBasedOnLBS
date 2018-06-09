@@ -1,6 +1,6 @@
 package com.sdu.kkkkk.controller;
 
-import com.sdu.kkkkk.Message;
+import com.sdu.kkkkk.models.Message;
 import com.sdu.kkkkk.entity.Friend;
 import com.sdu.kkkkk.entity.Request;
 import com.sdu.kkkkk.repository.FriendRepository;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * Created by ASUS on 2018/6/3.
+ * Created by kkkkk on 2018/6/3.
  */
 @RestController
 public class RequestController {
@@ -32,9 +32,18 @@ public class RequestController {
         return requestRepository.findRequestBySender(sender);
     }
 
+    @RequestMapping("findRequestByRid")
+    public Message<Request> findRequestByRid(int rid){
+        Request request = requestRepository.findRequestByRid(rid);
+        if(request == null)
+            return new Message<>(false,"faliure", null);
+        else
+            return new Message<>(true,"success",request);
+    }
+
     @RequestMapping("/saveRequest")
-    public Message<String> saveRequest(String receiver,String sender){
-        requestRepository.save(new Request(receiver,sender));
+    public Message<String> saveRequest(String receiver,String sender, String message){
+        requestRepository.save(new Request(receiver,sender, message));
         return new Message<>(true,"success", "saveRequest");
     }
 
@@ -46,7 +55,7 @@ public class RequestController {
         return new Message<>(true,"success","agree");
     }
 
-    @RequestMapping("disagreeRequest")
+    @RequestMapping("/disagreeRequest")
     public Message disagreeRequest(int rid){
         requestRepository.disagree(rid);
         return new Message<>(true,"success",null);

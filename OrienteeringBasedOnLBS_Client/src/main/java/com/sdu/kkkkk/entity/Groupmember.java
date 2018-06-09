@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
- * Created by ASUS on 2018/6/4.
+ * Created by kkkkk on 2018/6/4.
  */
 @Entity
 @Table(name = "groupmember")

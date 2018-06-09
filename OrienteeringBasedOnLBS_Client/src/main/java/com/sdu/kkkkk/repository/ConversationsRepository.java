@@ -8,12 +8,12 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 /**
- * Created by ASUS on 2018/5/7.
+ * Created by kkkkk on 2018/5/7.
  */
 public interface ConversationsRepository extends JpaRepository<Conversations,Integer> {
 
-    @Query("from Conversations c where (c.sender = ?1 and c.receiver = ?2) or (c.sender = ?2 and c.receiver = ?1) order by time")
-    List<Conversations> findConversationsBySenderAndReceiver(String sender, String receiver);
+    @Query("select c from Conversations c where ((c.sender = ?1 and c.receiver = ?2) or (c.sender = ?2 and c.receiver = ?1)) and c.coid > ?3 order by time")
+    List<Conversations> findConversationsBySenderAndReceiver(String sender, String receiver, int coid);
 
 
 }

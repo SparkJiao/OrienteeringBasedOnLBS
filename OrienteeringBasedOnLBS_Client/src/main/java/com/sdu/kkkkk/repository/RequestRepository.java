@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Created by ASUS on 2018/6/3.
+ * Created by kkkkk on 2018/6/3.
  */
 public interface RequestRepository extends JpaRepository<Request,Integer> {
 

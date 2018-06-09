@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by KKKKK on 2018/5/7.
+ * Created by kkkkk on 2018/5/7.
  */
 
 @Entity

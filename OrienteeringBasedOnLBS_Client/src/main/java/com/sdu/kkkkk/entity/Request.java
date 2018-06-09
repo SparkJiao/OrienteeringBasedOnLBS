@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by ASUS on 2018/6/3.
+ * Created by kkkkk on 2018/6/3.
  */
 @Entity
 @Table(name = "request")
@@ -17,6 +17,15 @@ public class Request {
     private Date time;
     //default:0:wait 1:agree -1:disagree
     private int state;
+    private String message;
+
+    public String getMessage(){
+        return message;
+    }
+
+    public void setMessage(String message){
+        this.message = message;
+    }
 
     public int getRid() {
         return rid;
@@ -58,9 +67,10 @@ public class Request {
         this.state = state;
     }
 
-    public Request(String receiver, String sender){
+    public Request(String receiver, String sender, String message){
         this.receiver = receiver;
         this.sender = sender;
+        this.message = message;
         this.state = 0;
     }
 }

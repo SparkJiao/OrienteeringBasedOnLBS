@@ -7,7 +7,7 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
- * Created by KKKKK on 2018/5/7.
+ * Created by kkkkk on 2018/5/7.
  */
 @Entity
 @Table(name="friend")

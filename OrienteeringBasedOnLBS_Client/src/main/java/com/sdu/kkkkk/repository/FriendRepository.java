@@ -12,7 +12,7 @@ import javax.jnlp.IntegrationService;
 import java.util.List;
 
 /**
- * Created by ASUS on 2018/5/7.
+ * Created by kkkkk on 2018/5/7.
  */
 public interface FriendRepository extends JpaRepository<Friend,FriendKey> {
 

@@ -1,6 +1,7 @@
 package com.sdu.kkkkk.repository;
 
 import com.sdu.kkkkk.entity.User;
+import com.sdu.kkkkk.models.Userinfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

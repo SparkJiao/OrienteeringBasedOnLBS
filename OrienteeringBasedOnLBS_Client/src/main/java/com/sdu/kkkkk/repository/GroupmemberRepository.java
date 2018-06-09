@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Created by ASUS on 2018/6/4.
+ * Created by kkkkk on 2018/6/4.
  */
 public interface GroupmemberRepository extends JpaRepository<Groupmember,GroupmemberKey>{
     //List<Groupmember> findGroupmembersBySid(String sid);

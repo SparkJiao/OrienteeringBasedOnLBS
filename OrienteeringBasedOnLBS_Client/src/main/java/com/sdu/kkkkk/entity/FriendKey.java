@@ -3,7 +3,7 @@ package com.sdu.kkkkk.entity;
 import java.io.Serializable;
 
 /**
- * Created by ASUS on 2018/5/7.
+ * Created by kkkkk on 2018/5/7.
  */
 public class FriendKey implements Serializable {
     private static final long serialVersionUID = 6811601262303871530L;
