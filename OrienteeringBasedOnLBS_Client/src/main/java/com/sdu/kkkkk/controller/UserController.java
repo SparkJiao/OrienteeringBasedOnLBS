@@ -4,11 +4,17 @@ import com.sdu.kkkkk.models.Location;
 import com.sdu.kkkkk.models.MD5;
 import com.sdu.kkkkk.models.Message;
 import com.sdu.kkkkk.entity.User;
+import com.sdu.kkkkk.models.Userinfo;
 import com.sdu.kkkkk.repository.UserRepository;
+import com.sdu.kkkkk.utils.ContentUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 /**
  * Created by kkkkk on 2018/4/1.
@@ -69,5 +75,19 @@ public class UserController {
         }else{
             return new Message<>(false,"no such student", null);
         }
+    }
+
+    @RequestMapping("/findUsersByName")
+    public List<Userinfo> findUsersByName(String name){
+        return userRepository.findUsersByName(name);
+    }
+
+    @RequestMapping("uploadImage")
+    public Message<String> uploadImage(String sid, MultipartFile file){
+        Message<String> msg = ContentUtils.upload(file);
+        User user = userRepository.findBySid(sid);
+        user.setImage(msg.getObj());
+        userRepository.save(user);
+        return msg;
     }
 }

@@ -73,6 +73,7 @@ public class User implements Serializable {
         this.sid = sid;
         this.password = password;
         this.name = name;
+        this.image = "2f244333dcad498bb368ff01b4d606df.png";
     }
 
     public User(){}

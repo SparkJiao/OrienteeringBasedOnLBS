@@ -65,6 +65,7 @@ public class Conversations {
     private String sender;
     private String receiver;
     private Date time;
+    //0 String 1 image 2 voice
     private String category;
     private String content;
 
