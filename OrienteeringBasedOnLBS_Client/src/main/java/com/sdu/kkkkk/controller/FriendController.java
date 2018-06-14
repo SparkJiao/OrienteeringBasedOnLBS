@@ -33,10 +33,10 @@ public class FriendController {
          return sidList1;
     }
 
-    /*@RequestMapping("/addFriend")
+    @RequestMapping("/addFriend")
     public void saveFriend(String sid_1, String sid_2) {
         friendRepository.save(new Friend(sid_1, sid_2));
-    }*/
+    }
 
     @RequestMapping("/deleteFriend")
     public Message<Friend> deleteFriend(String sid_1, String sid_2){
@@ -49,8 +49,8 @@ public class FriendController {
         List<String> sids = findFriendsBySid(sid);
         List<Location> locations = new ArrayList<>();
         for(int i=0;i<sids.size();i++){
-            User user = userRepository.findBySid(sid);
-            locations.add(new Location(user.getImage(),user.getLongitude(),user.getLatitude()));
+            User user = userRepository.findBySid(sids.get(i));
+            locations.add(new Location(user.getSid(), user.getImage(),user.getLongitude(),user.getLatitude()));
         }
         return locations;
     }
@@ -60,7 +60,7 @@ public class FriendController {
         List<String> sids = findFriendsBySid(sid);
         List<Userinfo> userinfos = new ArrayList<>();
         for(int i=0;i<sids.size();i++){
-            User user = userRepository.findBySid(sid);
+            User user = userRepository.findBySid(sids.get(i));
             userinfos.add(new Userinfo(user.getSid(),user.getImage(),user.getName()));
         }
         return userinfos;

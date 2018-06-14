@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class Location implements Serializable{
 
+    private String sid;
     private String image;
     private String longitude;
     private String latitude;
@@ -19,7 +20,8 @@ public class Location implements Serializable{
         this.image = image;
     }
 
-    public Location(String image, String longitude, String latitude){
+    public Location(String sid, String image, String longitude, String latitude){
+        this.sid = sid;
         this.image = image;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -43,5 +45,11 @@ public class Location implements Serializable{
         this.latitude = latitude;
     }
 
+    public String getSid() {
+        return sid;
+    }
 
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
 }

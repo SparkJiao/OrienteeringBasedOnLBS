@@ -19,6 +19,16 @@ public class Trend implements Serializable {
     private String sid;
     private Date time;
 
+    public Trend(String content, String video, String photo, String sid) {
+        this.content = content;
+        this.video = video;
+        this.photo = photo;
+        this.sid = sid;
+    }
+
+    public Trend() {
+    }
+
     public int getTid() {
         return tid;
     }

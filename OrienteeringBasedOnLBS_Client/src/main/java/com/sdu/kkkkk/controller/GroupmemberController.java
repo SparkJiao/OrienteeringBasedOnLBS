@@ -1,10 +1,14 @@
 package com.sdu.kkkkk.controller;
 
+import com.sdu.kkkkk.models.Members;
 import com.sdu.kkkkk.models.Message;
-import com.sdu.kkkkk.entity.Group;
+import com.sdu.kkkkk.entity.Wechat;
 import com.sdu.kkkkk.entity.Groupmember;
 import com.sdu.kkkkk.entity.GroupmemberKey;
-import com.sdu.kkkkk.repository.GroupRepository;
+import com.sdu.kkkkk.entity.User;
+import com.sdu.kkkkk.models.Userinfo;
+import com.sdu.kkkkk.repository.UserRepository;
+import com.sdu.kkkkk.repository.WechatRepository;
 import com.sdu.kkkkk.repository.GroupmemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,16 +27,30 @@ public class GroupmemberController {
     private GroupmemberRepository groupmemberRepository;
 
     @Autowired
-    private GroupRepository groupRepository;
+    private WechatRepository wechatRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @RequestMapping("/findGroupsBySid")
-    public List<Group> findGroupsBySid(String sid){
+    public List<Members> findGroupsBySid(String sid){
         List<Integer> gidsList = groupmemberRepository.findGidsBySid(sid);
-        List<Group> groupList = new ArrayList<>();
+        List<Members> wechats = new ArrayList<>();
         for(int i=0;i<gidsList.size();i++){
-            groupList.add(groupRepository.findGroupByGid(gidsList.get(i)));
+            int gid  = gidsList.get(i);
+            System.out.println(gid);
+            //wechatList.add(wechatRepository.findWechatByGid(gidsList.get(i)));
+            Members tmp = new Members(wechatRepository.findWechatByGid(gid));
+            List<Userinfo> memberInfos = tmp.getMemberInfos();
+            List<String> sids = groupmemberRepository.findSidsByGid(gid);
+            for(int j=0;j<sids.size();j++){
+                User user = userRepository.findBySid(sids.get(j));
+                Userinfo userinfo = new Userinfo(user.getSid(),user.getImage(),user.getName());
+                memberInfos.add(userinfo);
+            }
+            wechats.add(tmp);
         }
-        return groupList;
+        return wechats;
     }
 
     @RequestMapping("/invite")

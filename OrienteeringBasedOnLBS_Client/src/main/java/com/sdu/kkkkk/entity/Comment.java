@@ -14,11 +14,25 @@ public class Comment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cid;
+    private int tid;
     private Date time;
     private String content;
     private String sid;
-    private int tid;
-    private int reply_cid;
+    private String name;
+    private String rsid;
+    private String rname;
+
+    public Comment(int tid, String content, String sid, String name, String rsid, String rname) {
+        this.tid = tid;
+        this.content = content;
+        this.sid = sid;
+        this.name = name;
+        this.rsid = rsid;
+        this.rname = rname;
+    }
+
+    public Comment() {
+    }
 
     public int getCid() {
         return cid;
@@ -26,6 +40,14 @@ public class Comment implements Serializable {
 
     public void setCid(int cid) {
         this.cid = cid;
+    }
+
+    public int getTid() {
+        return tid;
+    }
+
+    public void setTid(int tid) {
+        this.tid = tid;
     }
 
     public Date getTime() {
@@ -52,21 +74,28 @@ public class Comment implements Serializable {
         this.sid = sid;
     }
 
-    public int getTid() {
-        return tid;
+    public String getName() {
+        return name;
     }
 
-    public void setTid(int tid) {
-        this.tid = tid;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getReply_cid() {
-        return reply_cid;
+    public String getRsid() {
+        return rsid;
     }
 
-    public void setReply_cid(int reply_cid) {
-        this.reply_cid = reply_cid;
+    public void setRsid(String rsid) {
+        this.rsid = rsid;
     }
 
+    public String getRname() {
+        return rname;
+    }
+
+    public void setRname(String rname) {
+        this.rname = rname;
+    }
 
 }

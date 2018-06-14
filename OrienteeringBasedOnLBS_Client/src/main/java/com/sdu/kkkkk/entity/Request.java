@@ -73,4 +73,7 @@ public class Request {
         this.message = message;
         this.state = 0;
     }
+
+    public Request() {
+    }
 }

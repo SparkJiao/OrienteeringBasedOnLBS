@@ -13,6 +13,12 @@ import java.io.Serializable;
 @Table(name = "groupmember")
 @IdClass(GroupmemberKey.class)
 public class Groupmember implements Serializable {
+
+    @Id
+    private int gid;
+    @Id
+    private String sid;
+
     public Groupmember(int gid, String sid) {
         this.gid = gid;
         this.sid = sid;
@@ -36,10 +42,5 @@ public class Groupmember implements Serializable {
     public void setSid(String sid) {
         this.sid = sid;
     }
-
-    @Id
-    private int gid;
-    @Id
-    private String sid;
 
 }

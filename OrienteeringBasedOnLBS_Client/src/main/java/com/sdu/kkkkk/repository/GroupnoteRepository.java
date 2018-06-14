@@ -9,5 +9,7 @@ import java.util.List;
  * Created by kkkkk on 2018/6/4.
  */
 public interface GroupnoteRepository extends JpaRepository<Groupnote, Integer>{
-    List<Groupnote> findGroupnotesByGidEquals(int gid);
+
+    List<Groupnote> findGroupnotesByGidEqualsAndGnidGreaterThanOrderByTime(int gid, int gnid);
+
 }

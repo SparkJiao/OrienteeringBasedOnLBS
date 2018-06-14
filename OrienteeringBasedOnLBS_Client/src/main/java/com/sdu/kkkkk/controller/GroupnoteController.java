@@ -23,20 +23,20 @@ public class GroupnoteController {
     private GroupnoteRepository groupnoteRepository;
 
     @RequestMapping("/findGroupnotesByGidEquals")
-    public List<Groupnote> findGroupnotesByGidEquals(int gid) {
-        return groupnoteRepository.findGroupnotesByGidEquals(gid);
+    public List<Groupnote> findGroupnotesByGidEquals(int gid, int gnid) {
+        return groupnoteRepository.findGroupnotesByGidEqualsAndGnidGreaterThanOrderByTime(gid, gnid);
     }
 
     @RequestMapping("/addGroupnote")
-    public Message<String> save(int gid, String sid, String category, Object content) {
-        String s = ContentUtils.returnContent(category, content);
+    public Message<String> save(int gid, String sid, String category, MultipartFile audio, MultipartFile photo, String content) {
+        String s = ContentUtils.returnContent(category, audio, photo, content);
         groupnoteRepository.save(new Groupnote(gid, sid, category, s));
-        return new Message<>(true,"success", "addGroupnote");
+        return new Message<>(true, "success", "addGroupnote");
     }
 
     //@RequestMapping("/cleanNotes")
-    public Message<String> cleanNotes(){
+    public Message<String> cleanNotes() {
         groupnoteRepository.deleteAll();
-        return new Message<>(true,"success", "cleanNotes");
+        return new Message<>(true, "success", "cleanNotes");
     }
 }

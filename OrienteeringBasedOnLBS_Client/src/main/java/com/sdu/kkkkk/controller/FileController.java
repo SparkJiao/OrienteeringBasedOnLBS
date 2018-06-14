@@ -11,6 +11,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 /**
  * Created by kkkkk on 2018/6/9.
  */
@@ -56,8 +61,25 @@ public class FileController {
      */
     @RequestMapping(method = RequestMethod.GET, value = "/show", produces = MediaType.IMAGE_PNG_VALUE)
     @ResponseBody
-    public ResponseEntity showPhotos(String fileName){
-
+    //@RequestMapping("/show")
+    public ResponseEntity showPhotos(String fileName) throws IOException {
+//        File file = new File(path + "/" + fileName);
+//        long fileSize = file.length();
+//        FileInputStream fi = new FileInputStream(file);
+//        byte[] buffer = new byte[(int) fileSize];
+//        int offset = 0;
+//        int numRead = 0;
+//        while (offset < buffer.length
+//                && (numRead = fi.read(buffer, offset, buffer.length - offset)) >= 0) {
+//            offset += numRead;
+//        }
+//        // 确保所有数据均被读取
+//        if (offset != buffer.length) {
+//            throw new IOException("Could not completely read file "
+//                    + file.getName());
+//        }
+//        fi.close();
+//        return buffer;
         try {
             // 由于是读取本机的文件，file是一定要加上的， path是在application配置文件中的路径
             ResponseEntity re = ResponseEntity.ok(resourceLoader.getResource("file:" + path + "/" + fileName));

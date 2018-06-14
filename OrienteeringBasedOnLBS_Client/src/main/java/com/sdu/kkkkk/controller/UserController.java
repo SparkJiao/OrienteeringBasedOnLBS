@@ -49,7 +49,7 @@ public class UserController {
     @RequestMapping(value = "/getLongitudeAndLatitude")
     public Message<Location> getLongtitudeAndLatitude(String sid){
         User user = userRepository.findBySid(sid);
-        return new Message<>(true,"success", new Location(user.getImage(), user.getLongitude(),user.getLatitude()));
+        return new Message<>(true,"success", new Location(user.getSid(), user.getImage(), user.getLongitude(),user.getLatitude()));
     }
 
     @RequestMapping(value = "/updateLocation")
@@ -82,12 +82,15 @@ public class UserController {
         return userRepository.findUsersByName(name);
     }
 
-    @RequestMapping("uploadImage")
+    @RequestMapping("/uploadImage")
     public Message<String> uploadImage(String sid, MultipartFile file){
         Message<String> msg = ContentUtils.upload(file);
         User user = userRepository.findBySid(sid);
         user.setImage(msg.getObj());
         userRepository.save(user);
+        System.out.println(msg.isFlag());
+        System.out.println(msg.getMsg());
+        System.out.println(msg.getObj());
         return msg;
     }
 }

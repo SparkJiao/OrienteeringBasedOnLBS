@@ -21,4 +21,7 @@ public interface GroupmemberRepository extends JpaRepository<Groupmember,Groupme
     @Modifying
     @Query("delete from Groupmember gm where gm.gid = ?1")
     void deleteGroupmembersByGid(int gid);
+
+    @Query("select sid from Groupmember gp where gp.gid = ?1")
+    List<String> findSidsByGid(int gid);
 }

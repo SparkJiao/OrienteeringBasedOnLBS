@@ -16,7 +16,7 @@ public class Activity implements Serializable{
     private Date time;
     private String splace;
     private String epalce;
-    private int sid;
+    private String sid;
 
     public int getAid() {
         return aid;
@@ -50,13 +50,20 @@ public class Activity implements Serializable{
         this.epalce = epalce;
     }
 
-    public int getSid() {
+    public String getSid() {
         return sid;
     }
 
-    public void setSid(int sid) {
+    public void setSid(String sid) {
         this.sid = sid;
     }
 
+    public Activity(String splace, String epalce, String sid) {
+        this.splace = splace;
+        this.epalce = epalce;
+        this.sid = sid;
+    }
 
+    public Activity() {
+    }
 }

@@ -29,8 +29,8 @@ public class ConversationsController {
     }
 
     @RequestMapping("/addConversations")
-    public Message<Conversations> addConversations(String sender, String receiver, String category, Object content) {
-        String s = ContentUtils.returnContent(category, content);
+    public Message<Conversations> addConversations(String sender, String receiver, String category, MultipartFile audio, MultipartFile photo, String content) {
+        String s = ContentUtils.returnContent(category, audio, photo, content);
         conversationsRepository.save(new Conversations(sender, receiver, category, s));
         return new Message<Conversations>(true,"success",null);
     }

@@ -9,24 +9,37 @@ import org.springframework.web.multipart.MultipartFile;
  */
 public class ContentUtils {
 
-    @Value("${web.upload-path}")
-    private static String path;
+    private static String path = "C:/Users/ASUS/Desktop/img";
 
-    public static String returnContent(String category, Object content){
+    public static String transAudio(MultipartFile audio){
         String s = "";
-        if(category == "1"){
-            MultipartFile file = (MultipartFile)content;
-            Message<String> msg = upload(file);
-            s = msg.getObj();
-        }else if(category == "2"){
+        return s;
+    }
 
-        }else if(category == "0"){
-            s = (String)content;
-        }
+    public static String transPhoto(MultipartFile photo){
+        Message<String> msg = upload(photo);
+        String s = msg.getObj();
+        return s;
+    }
+
+    public static String transMedia(MultipartFile media){
+        Message<String> msg = upload(media);
+        String s = msg.getObj();
+        return s;
+    }
+
+    public static String returnContent(String category, MultipartFile audio, MultipartFile photo, String content){
+        String s = "";
+        if(category.equals("0"))
+            s = content;
+        else if(category.equals("1"))
+            s = ContentUtils.transPhoto(photo);
+        else if(category.equals("2"))
+            s = ContentUtils.transAudio(audio);
         return s;
     }
 
     public static Message<String> upload(MultipartFile file){
-        return FileUtils.upload(file, path ,file.getOriginalFilename());
+        return FileUtils.upload(file, path,file.getOriginalFilename());
     }
 }

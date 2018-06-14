@@ -27,6 +27,8 @@ public class FileUtils {
         //使用原文件名
         //String realPath = path + "/" + fileName;
 
+        System.out.println(realPath);
+
         File dest = new File(realPath);
 
         //判断文件父目录是否存在
@@ -48,6 +50,7 @@ public class FileUtils {
             return new Message<>(false, "IO Exception", null);
         }
 
+        //return new Message<>(true,"success",newName);
     }
 
 }
