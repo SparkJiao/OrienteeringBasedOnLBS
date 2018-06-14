@@ -120,10 +120,10 @@
  <HintPath>E:/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="EasyAR.Unity">
- <HintPath>E:/EasyAR/EasyAR_SDK_2.2.0_Basic_Samples_Unity_2018-03-06/HelloAR/Assets/EasyAR/Scripts/EasyAR.Unity.dll</HintPath>
+ <HintPath>E:/GitHub/OrienteeringBasedOnLBS/HelloAR/Assets/EasyAR/Scripts/EasyAR.Unity.dll</HintPath>
  </Reference>
  <Reference Include="EasyAR.Unity.Editor">
- <HintPath>E:/EasyAR/EasyAR_SDK_2.2.0_Basic_Samples_Unity_2018-03-06/HelloAR/Assets/EasyAR/Scripts/Editor/EasyAR.Unity.Editor.dll</HintPath>
+ <HintPath>E:/GitHub/OrienteeringBasedOnLBS/HelloAR/Assets/EasyAR/Scripts/Editor/EasyAR.Unity.Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

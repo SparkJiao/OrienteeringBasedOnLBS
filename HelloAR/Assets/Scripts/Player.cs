@@ -35,4 +35,14 @@ public class Player : MonoBehaviour
 		GUILayout.Label("input.gyro.attitude: " + Input.gyro.attitude);
 		GUILayout.Label("iphone width/font: " + Screen.width + " : " + GUI.skin.label.fontSize);
 	}
+
+
+	void OnCollisionEnter(Collision collision)
+	{  
+		if (collision.collider.tag == "AnotherBall")
+		{  
+			print ("COLLISION");
+			Application.Quit ();
+		}  
+	}  
 }

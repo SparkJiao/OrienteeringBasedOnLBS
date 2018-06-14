@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MoseDow : MonoBehaviour {
 
-	bool flag = true;
+	//bool flag = true;
 
 	// Use this for initialization
 	void Start () {

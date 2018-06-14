@@ -12,6 +12,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 5667fb372c2b292ccdec2a31aaac98fa UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 5667fb372c2b292ccdec2a31aaac98fa UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 c24a21b131bfa67be1162db2cba4b52b UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
+3d027b75915e3e056f85a3f0415d4182 Assembly-CSharp.dll:.CameraFollow
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -78,6 +79,7 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 e51fc5e6e0770b2bc47fde7fc7e962bc Assembly-CSharp.dll:EasyAR.RecorderBehaviour
 748bda894df60c2fc77aa45fb2da7f60 Assembly-CSharp.dll:EasyAR.CameraDeviceBehaviour
+5c9f7bf940868babbb9f65c46d0ae76e Assembly-CSharp.dll:.MapGenerator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cac917711d0e84d412d48737b6fc9ae7 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 706b890efe0a474d76b40e459ddb3e76 UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -138,6 +140,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 3f32f08a64daf40b09ed864d96fe3840 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Player
 9f5fcfd05951ea52558ee6ab33722f09 Assembly-CSharp.dll:EasyAR.ARCameraBehaviour
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 5f2ad81aa8994e8fbe25d1e57afe6773 UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
@@ -151,9 +154,6 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 783a636b110c0b78a45cc02816ef9013 Assembly-CSharp.dll:EasyAR.ImageTargetBehaviour
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MoseDow
 5c40b43836450d8cc4b6dbdc1f9847c9 Assembly-CSharp.dll:EasyAR.ImageTrackerBehaviour
+97a43315c58ff89b0483ffa817e4ad72 Assembly-CSharp.dll:.MeshGenerator
 b8ce989480095e58023140453c7b0b16 Assembly-CSharp.dll:EasyAR.VideoPlayerBehaviour
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:EasyAR.QRCodeScannerBehaviour
-ee81e358c848ba9770d0416a2e75a112 Assembly-CSharp.dll:.MapGenerator
-3d027b75915e3e056f85a3f0415d4182 Assembly-CSharp.dll:.CameraFollow
-97a43315c58ff89b0483ffa817e4ad72 Assembly-CSharp.dll:.MeshGenerator
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Player

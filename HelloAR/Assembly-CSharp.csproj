@@ -111,7 +111,7 @@
  <HintPath>E:/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="EasyAR.Unity">
- <HintPath>E:/EasyAR/EasyAR_SDK_2.2.0_Basic_Samples_Unity_2018-03-06/HelloAR/Assets/EasyAR/Scripts/EasyAR.Unity.dll</HintPath>
+ <HintPath>E:/GitHub/OrienteeringBasedOnLBS/HelloAR/Assets/EasyAR/Scripts/EasyAR.Unity.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
